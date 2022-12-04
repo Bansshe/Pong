@@ -32,7 +32,7 @@ function draw() {
     criaRaquete();
     movimentarRaquete();
     colisaoRaquete();
-    //criaRaqueteOponente();
+    criaRaqueteOponente();
     //movimentarRaquete();
     //colisaoRaquete();
 
