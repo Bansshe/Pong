@@ -41,7 +41,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-  canvas {
+
+canvas {
     display: block;
+    padding: 10px;
   }
   
