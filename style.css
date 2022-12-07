@@ -47,3 +47,11 @@ canvas {
     padding: 10px;
   }
 
+body {
+	margin: 50px;
+	padding: 50px;
+}
+.button {
+	padding: 20px;
+	margin: 30px;
+}

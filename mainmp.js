@@ -32,10 +32,9 @@ function draw() {
   movimentaBolinha();
   verificaColisaoBorda();
   mostraRaquete(xRaquete, yRaquete);
-  movimentaMinhaRaquete();
+  movimentaRaquete();
   verificaColisaoRaquete(xRaquete, yRaquete);
   mostraRaquete(xRaqueteOponente, yRaqueteOponente);
-  movimentaRaqueteOponente();
   verificaColisaoRaquete(xRaqueteOponente, yRaqueteOponente);
   incluiPlacar();
   marcaPonto();
@@ -66,12 +65,18 @@ function mostraRaquete(x,y){
       raqueteAltura);
 }
 
-function movimentaMinhaRaquete(){
+function movimentaRaquete(){
   if (keyIsDown(UP_ARROW)){
     yRaquete -= 10;
   }
   if (keyIsDown(DOWN_ARROW)){
     yRaquete += 10;
+  }
+  if (keyIsDown(87)){
+    yRaqueteOponente -= 10;
+  }
+  if (keyIsDown(83)){
+    yRaqueteOponente += 10;
   }
 }
 
@@ -87,11 +92,6 @@ xBolinha,yBolinha,raio);
   if (colidiu){
     velocidadeXBolinha *= -1;
   }
-}
-
-function movimentaRaqueteOponente(){
-  velocidadeYOponente = yBolinha -yRaqueteOponente - raqueteComprimento / 2 - 30;
-  yRaqueteOponente += velocidadeYOponente
 }
 
 function incluiPlacar(){
@@ -114,25 +114,5 @@ function marcaPonto(){
   if (xBolinha < 10){
     pontosDoOponente += 1;
 
-  }
-}
-
-function movimentaRaqueteOponente(){
-    velocidadeYOponente = yBolinha -yRaqueteOponente - raqueteComprimento / 2 - 30;
-    yRaqueteOponente += velocidadeYOponente + chanceDeErrar
-    calculaChanceDeErrar()
-  }
-
-function calculaChanceDeErrar() {
-  if (pontosDoOponente >= meusPontos) {
-    chanceDeErrar += 1
-    if (chanceDeErrar >= 39){
-    chanceDeErrar = 40
-    }
-  } else {
-    chanceDeErrar -= 1
-    if (chanceDeErrar <= 35){
-    chanceDeErrar = 35
-    }
   }
 }
